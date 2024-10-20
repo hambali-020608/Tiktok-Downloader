@@ -72,7 +72,7 @@ function App() {
             </div>
           </div>
           {videoData && (
-            <div className=" card lg:card-side bg-white shadow-xl w-10/12">
+            <div className=" sm:ms-10 md:ms-10 card lg:card-side bg-white shadow-xl w-10/12">
               <div className=" w-full relative pb-[50.25%]">
                 <video className="absolute top-0 bottom-5 left-0 w-full h-full"controls >
                 <source src={videoData.video.noWatermark} type="video/mp4" />
