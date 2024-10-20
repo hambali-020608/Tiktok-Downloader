@@ -80,10 +80,10 @@ function App() {
            >
              <div class="rounded-lg border grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 grid-rows-1 gap-0 border-gray-200  bg-white p-6 p- shadow-sm dark:border-gray-700 dark:bg-gray-800">
                <div class="h-56 w-full">
-                 {/* <video controls style={{maxWidth:"300px",width: "600%", height: "250px" }}> */}
-                 {/* <source src={videoData.video.noWatermark} type="video/mp4" /> */}
+                 <video controls style={{maxWidth:"300px",width: "600%", height: "250px" }}>
+                 <source src={videoData.video.noWatermark} type="video/mp4" />
                  Browser Anda tidak mendukung video tag.
-                 {/* </video> */}
+                 </video>
                </div>
                <div class="pt-6">
                  <div class="mb-4 flex items-center justify-between gap-4">
@@ -147,7 +147,7 @@ function App() {
                            d="M12 6C6.5 1 1 8 5.8 13l6.2 7 6.2-7C23 8 17.5 1 12 6Z"
                          />
                        </svg>
-                       {/* {videoData.stats.likeCount} */}
+                       {videoData.stats.likeCount}
                      </button>
                      <div
                        id="tooltip-add-to-favorites"
@@ -172,7 +172,7 @@ function App() {
                            Judul:
                          </th>
                          <td class="overflow-hidden break-words px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap truncate max-w-xs">
-                           {/* {videoData.title}dafsdfsfsfsfsfsf */}
+                           {videoData.title}
                          </td>
                        </tr>
            
@@ -185,7 +185,7 @@ function App() {
                          </th>
            
                          <td class="px-6 py-4 truncate max-w-xs">
-                           {/* {videoData.author.name} */}
+                           {videoData.author.name}
                          </td>
                        </tr>
                      </tbody>
