@@ -1,7 +1,7 @@
     <div className="grid grid-cols-1 justify-center align-items-center content-center">
 <div
   class="mb-4 grid  sm:grid-cols-1 md:mb-8 lg:grid-cols-3 xl:grid-cols-1"
-  style={{ width: "100%" }}
+
 >
   <div class="rounded-lg border grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 grid-rows-1 gap-0 border-gray-200  bg-white p-6 p- shadow-sm dark:border-gray-700 dark:bg-gray-800">
     <div class="h-56 w-full">
