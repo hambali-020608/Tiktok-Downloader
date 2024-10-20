@@ -42,8 +42,8 @@ function App() {
                 type="text"
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
-                class="rounded-lg me-10 h:96 w-full flex-grow border-none outline-none px-2 py-1"
-                placeholder="Search..."
+                class="rounded-lg bg-white me-10 h:96 w-full text-black flex-grow border-none outline-none px-2 py-1"
+                placeholder="input url..."
               />
               <button class="bg-blue-500 text-white px-4 py-1 rounded-lg "  onClick={handleDownload}
                 type="submit">
