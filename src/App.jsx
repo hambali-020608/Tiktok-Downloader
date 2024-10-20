@@ -62,7 +62,7 @@ function App() {
         {error && <p style={{ color: "red" }}>{error}</p>}
       </div>
 
-      <section class=" break-words flex justify-center align-items-center content-center align-content-center bg-gray-50 py-8 antialiased  md:py-12 w-full max-w-full">
+      <section class=" break-words flex justify-center align-items-center content-center align-content-center  py-8 antialiased  md:py-12 w-full max-w-full">
         <div class="mx-auto max-w-screen-xl px-4 2xl:px-4 w-full">
           <div class="mb-4 items-end justify-between space-y-4 sm:flex sm:space-y-0 md:mb-8">
             <div className="">
@@ -72,7 +72,7 @@ function App() {
             </div>
           </div>
           {videoData && (
-            <div className=" card lg:card-side bg-base-100 shadow-xl w-10/12">
+            <div className=" card lg:card-side bg-white bg-base-100 shadow-xl w-10/12">
               <div className=" w-full relative pb-[50.25%]">
                 <video className="absolute top-0 bottom-5 left-0 w-full h-full"controls >
                 <source src={videoData.video.noWatermark} type="video/mp4" />
