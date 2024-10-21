@@ -6,16 +6,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./component/navbar";
 
 function App() {
+  const [isExpand, setIsExpand] = useState(false);
   const [url, setUrl] = useState("");
-  const resultRef=useRef(null)
-  const [loading,setLoading]=useState(false)
+  const resultRef = useRef(null);
+  const [loading, setLoading] = useState(false);
   const [videoData, setVideoData] = useState(null);
   const [error, setError] = useState("");
 
   const handleDownload = async () => {
     resultRef.current.scrollIntoView({ behavior: "smooth" }); // Scroll ke bagian hasil
-    
-    setLoading(true)
+
+    setLoading(true);
     try {
       const response = await axios.get(
         `https://api.tiklydown.eu.org/api/download?url=${url}`
@@ -26,10 +27,14 @@ function App() {
     } catch (err) {
       setError("Gagal mendownload video, pastikan URL valid.");
       setVideoData(null);
-    } finally{
-      setLoading(false)
+    } finally {
+      setLoading(false);
     }
   };
+
+  function toggleReadMore() {
+    setIsExpand(!isExpand);
+  }
 
   return (
     <div>
@@ -38,7 +43,6 @@ function App() {
       <div className=" back flex justify-content-center  ">
         <div className="">
           <div className="mb-4 text-white">
-            
             <h1 className="h1 text-center">TikTok Video Downloader</h1>
             <p align="center">
               Pendownload Video atau Audio tiktok tanpa Watermark
@@ -47,28 +51,38 @@ function App() {
           <div class="container w-full">
             <div class="flex items-center border-2 border-gray-300 rounded-lg p-2 max-w-lg mx-auto">
               <input
-              required
+                required
                 type="text"
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
                 class="rounded-lg bg-white me-10 h:96 w-full text-black flex-grow border-none outline-none px-2 py-1"
                 placeholder="input url..."
               />
-              <button class="bg-dark text-white px-4 py-1 rounded-lg "  onClick={handleDownload}
-                type="submit">
+              <button
+                class="bg-dark text-white px-4 py-1 rounded-lg "
+                onClick={handleDownload}
+                type="submit"
+              >
                 Search
               </button>
             </div>
           </div>
-         
+
           <p className="text-center text-white">
             Hasil Download nya ada di bawah 👇👇👇
           </p>
-        {error && <p className="text-center mt-3"style={{ color: "red " }}>{error}</p>}
+          {error && (
+            <p className="text-center mt-3" style={{ color: "red " }}>
+              {error}
+            </p>
+          )}
         </div>
       </div>
 
-      <section ref={resultRef} class=" bg-slate-200 break-words flex justify-center align-items-center content-center align-content-center  py-8 antialiased  md:py-12 w-full max-w-full">
+      <section
+        ref={resultRef}
+        class=" bg-slate-200 break-words flex justify-center align-items-center content-center align-content-center  py-8 antialiased  md:py-12 w-full max-w-full"
+      >
         <div class="mx-auto max-w-screen-xl px-4 2xl:px-4 w-full">
           <div class="mb-4 items-end justify-between space-y-4 sm:flex sm:space-y-0 md:mb-8">
             <div className="">
@@ -100,7 +114,17 @@ function App() {
                         <th scope="row" className="h4">
                           Judul
                         </th>
-                        <td className="h6">{videoData.title}</td>
+                        <td className="h6">
+                          {isExpand
+                            ? videoData.title
+                            : `${videoData.title.substring(0, 20)}...`}
+                          <button
+                            className="btn btn-link"
+                            onClick={toggleReadMore}
+                          >
+                            {isExpand ? "Show Less" : "Read More"}
+                          </button>
+                        </td>
                       </tr>
 
                       <tr>
@@ -268,8 +292,10 @@ function App() {
         </div>
       </section>
       <section className="mockup-window bg-white border ">
-  <h1 className="h4 text-center">How To Downloading Tiktok Video With TikDown???</h1>
-</section>
+        <h1 className="h4 text-center">
+          How To Downloading Tiktok Video With TikDown???
+        </h1>
+      </section>
     </div>
   );
 }
