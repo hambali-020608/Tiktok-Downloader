@@ -1,6 +1,15 @@
+import { useState } from "react";
+
 export default function Card({videoData}){
+const [isExpand,setIsExpand]=useState(false)
+
+
+  function toggleReadMore() {
+    setIsExpand(!isExpand);
+  }
+  
     return(
-        <div className=" sm:ms-10 md:ms-10 card lg:card-side bg-white shadow-xl w-full">
+        <div className=" sm:ms-10 md:ms-10 card lg:card-side bg-white shadow-xl ">
         <div className=" w-full relative pb-[50.25%]">
           <video
             className="absolute top-0 bottom-5 left-0 w-full h-full"
@@ -38,7 +47,15 @@ export default function Card({videoData}){
                   <th scope="row" className="bg-slate-400 h4">
                     Author
                   </th>
-                  <td className="h6">{videoData.author.name}</td>
+                  <td className="h6">
+<div class="flex items-center gap-2">
+    <img class="w-10 h-10 rounded-full" src={videoData.author.avatar} alt=""/>
+    <div class="font-medium dark:text-white">
+        <div>{videoData.author.name}</div>
+        <div class="text-sm text-gray-500 dark:text-gray-400">@{videoData.author.unique_id}</div>
+    </div>
+</div>
+</td>
                 </tr>
                 <tr>
                   <th scope="row" className="bg-slate-400 h4">
