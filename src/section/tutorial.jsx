@@ -5,7 +5,7 @@ import tutor4 from '../../public/img/tutor4.png'
 export default function Tutorial(){
     return(
         <section id="tutorial-section" className="mockup-window bg-white border min-h-[100vh]">
-        <h1 className="h4 text-center">
+        <h1 className="h4 text-center " align="center">
           Bagaimana Cara Mendownload Video Tiktok Dengan TikDown???
         </h1>
         
