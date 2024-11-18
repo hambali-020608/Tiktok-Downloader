@@ -4,12 +4,12 @@ import tutor3 from '../../public/img/tutor3.png'
 import tutor4 from '../../public/img/tutor4.png'
 export default function Tutorial(){
     return(
-        <section id="tutorial-section" className=" pt-5 bg-white border min-h-[100vh]">
-        <h1 className="h4 text-center " align="center">
-          Bagaimana Cara Mendownload Video Tiktok Dengan TikDown
+        <section id="tutorial-section" className=" pt-5  border min-h-[100vh]">
+        <h1 className="h3 text-center mb-5 " align="center">
+          Bagaimana Cara Mendownload Video Tiktok Dengan Tik-Down
         </h1>
         
-    <div className="container w-[80%] lg:w-[60%] ">
+    <div className="container  w-[80%] lg:w-[60%] ">
  
 <div className="grid m-auto grid-cols-1 lg:grid-cols-2 gap-4 pt-10 max-w-5xl ">
     {/* Kolom 2 */}
