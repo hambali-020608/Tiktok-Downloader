@@ -10,6 +10,7 @@ import Tutorial from "./section/tutorial";
 import Footer from "./section/footer";
 import ResultLayout from "./layout/ResultLayout";
 import logo from '../public/logo.png'
+import Benefit from "./section/benefit";
 
 function App() {
   const [isExpand, setIsExpand] = useState(false);
@@ -97,6 +98,10 @@ function App() {
     </ResultLayout>
 
 <Tutorial/>
+
+<Benefit/>
+
+
 </main>
   
 <Footer/>
