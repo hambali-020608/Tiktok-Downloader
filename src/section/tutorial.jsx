@@ -4,7 +4,7 @@ import tutor3 from '../../public/img/tutor3.png'
 import tutor4 from '../../public/img/tutor4.png'
 export default function Tutorial(){
     return(
-        <section id="tutorial-section" className=" pt-5  border min-h-[100vh]">
+        <section id="tutorial-section" className=" pt-5  min-h-[100vh]">
         <h1 className="h3 text-center mb-5 " align="center">
           Bagaimana Cara Mendownload Video Tiktok Dengan Tik-Down
         </h1>
