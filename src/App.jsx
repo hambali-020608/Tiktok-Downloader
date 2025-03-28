@@ -26,10 +26,10 @@ function App() {
     setLoading(true);
     try {
       const response = await axios.get(
-        `https://api.tiklydown.eu.org/api/download?url=${url}`
+        `https://server-downloader.vercel.app/api/tik-down/v1?url=${url}`
       );
       console.log(response.data);
-      setVideoData(response.data);
+      setVideoData(response.data.data);
       setError("");
     } catch (err) {
       setError("Gagal mendownload video, pastikan URL valid.");

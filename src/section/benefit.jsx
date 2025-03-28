@@ -1,5 +1,6 @@
 import AddFree from '../../public/img/addfree.svg'
 import Easy from '../../public/img/easy.svg'
+
 export default function Benefit() {
 
 

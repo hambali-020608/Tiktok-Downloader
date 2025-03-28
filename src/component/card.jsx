@@ -11,11 +11,12 @@ const [isExpand,setIsExpand]=useState(false)
     return(
         <div className=" sm:ms-10 md:ms-10 card lg:card-side bg-white shadow-xl ">
         <div className=" w-full relative pb-[50.25%]">
+          
           <video
             className="absolute top-0 bottom-5 left-0 w-full h-full"
             controls
           >
-            <source src={videoData.video.noWatermark} type="video/mp4" />
+            <source src={videoData.videoLink} type="video/mp4" />
             Browser Anda tidak mendukung video tag.
           </video>
         </div>
@@ -32,8 +33,8 @@ const [isExpand,setIsExpand]=useState(false)
                   </th>
                   <td className="h6">
                     {isExpand
-                      ? videoData.title
-                      : `${videoData.title.substring(0, 20)}...`}
+                      ? videoData.videoTitle
+                      : `${videoData.videoTitle.substring(0, 20)}...`}
                     <button
                       className="btn btn-link"
                       onClick={toggleReadMore}
@@ -49,14 +50,14 @@ const [isExpand,setIsExpand]=useState(false)
                   </th>
                   <td className="h6">
 <div class="flex items-center gap-2">
-    <img class="w-10 h-10 rounded-full" src={videoData.author.avatar} alt=""/>
+    <img class="w-10 h-10 rounded-full" src={videoData.imageAuthorLink} alt=""/>
     <div class="font-medium dark:text-white">
-        <div>{videoData.author.name}</div>
-        <div class="text-sm text-gray-500 dark:text-gray-400">@{videoData.author.unique_id}</div>
+        <div>{videoData.authorName}</div>
+        {/* <div class="text-sm text-gray-500 dark:text-gray-400">@{videoData.author.unique_id}</div> */}
     </div>
 </div>
 </td>
-                </tr>
+                {/* </tr>
                 <tr>
                   <th scope="row" className="bg-slate-400 h4">
                     Created at
@@ -69,15 +70,14 @@ const [isExpand,setIsExpand]=useState(false)
                   </th>
                   <td className="h6">
                     {videoData.video.durationFormatted}
-                  </td>
+                  </td> */}
                 </tr>
               </tbody>
             </table>
-
-            <div className="stats shadow">
+{/* stats */}
+            {/* <div className="stats shadow">
               <div className="stat">
                 <div className="stat-figure text-secondary">
-                  {/* svg */}
                   <svg
                     class="h-10 w-10"
                     aria-hidden="true"
@@ -200,11 +200,11 @@ const [isExpand,setIsExpand]=useState(false)
                   {videoData.stats.commentCount}
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="card-actions justify-end">
             <a
-              href={videoData.video.noWatermark}
+              href={videoData.videoLink}
               download="tiktok-video.mp4"
             >
               <button className="btn btn-primary">Download Video</button>
