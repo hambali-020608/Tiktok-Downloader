@@ -75,35 +75,8 @@ const [isExpand,setIsExpand]=useState(false)
               </tbody>
             </table>
 {/* stats */}
-            {/* <div className="stats shadow">
-              <div className="stat">
-                <div className="stat-figure text-secondary">
-                  <svg
-                    class="h-10 w-10"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="30"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-width="2"
-                      d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"
-                    />
-                    <path
-                      stroke="currentColor"
-                      stroke-width="2"
-                      d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                    />
-                  </svg>
-                </div>
-                <div className="stat-title">Views</div>
-                <div className="stat-value">
-                  {videoData.stats.playCount}
-                </div>
-              </div>
+            <div className="stats shadow">
+              
 
               <div className="stat">
                 <div className="stat-figure text-secondary">
@@ -140,7 +113,36 @@ const [isExpand,setIsExpand]=useState(false)
                 </div>
                 <div className="stat-title">Like</div>
                 <div className="stat-value">
-                  {videoData.stats.likeCount}
+                  {videoData.stats.statsLike}
+                </div>
+              </div>
+
+              <div className="stat">
+                <div className="stat-figure text-secondary">
+                  <svg
+                    class="h-10 w-10"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="30"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-width="2"
+                      d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"
+                    />
+                    <path
+                      stroke="currentColor"
+                      stroke-width="2"
+                      d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                    />
+                  </svg>
+                </div>
+                <div className="stat-title">Share</div>
+                <div className="stat-value">
+                  {videoData.stats.statsShare}
                 </div>
               </div>
 
@@ -197,10 +199,10 @@ const [isExpand,setIsExpand]=useState(false)
                 </div>
                 <div className="stat-title">Comments</div>
                 <div className="stat-value">
-                  {videoData.stats.commentCount}
+                  {videoData.stats.statsComment}
                 </div>
               </div>
-            </div> */}
+            </div>
           </div>
           <div className="card-actions justify-end">
             <a

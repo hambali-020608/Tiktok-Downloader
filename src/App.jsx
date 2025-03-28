@@ -50,7 +50,6 @@ function App() {
       <section id="hero" className=" back flex justify-content-center  ">
         <div className="">
           <div className="mb-4 text-white">
-            
             <h1 align="center" className="pt-[50px] flex h4  lg:text-[2.5rem]   font-extrabold text-center items-center -mb-5 lg:-mb-7"><img className=" bg-transparent w-36 lg:w-48 " src={logo} alt="" />Video Downloader</h1>
             <p align="center">
              Tik-Down Pendownload Video tiktok tanpa Watermark, cepat dan tanpa iklan
