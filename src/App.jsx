@@ -26,7 +26,7 @@ function App() {
     setLoading(true);
     try {
       const response = await axios.get(
-        `https://server-downloader.vercel.app/api/tik-down/v1?url=${url}`
+        `https://profesor-api.vercel.app/api/tik-down/v1?url=${url}`
       );
       console.log(response.data);
       setVideoData(response.data.data);
