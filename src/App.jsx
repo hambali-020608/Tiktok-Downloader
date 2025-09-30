@@ -1,15 +1,12 @@
 import React, { useRef, useState } from "react";
-import yt from '../public/yt.png'
-
+import logo from "../public/logo.png";
 import "./App.css";
 import axios from "axios";
-import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./component/navbar";
 import Card from "./component/card";
 import Tutorial from "./section/tutorial";
 import Footer from "./section/footer";
 import ResultLayout from "./layout/ResultLayout";
-import logo from '../public/logo.png'
 import Benefit from "./section/benefit";
 
 function App() {
@@ -21,90 +18,104 @@ function App() {
   const [error, setError] = useState("");
 
   const handleDownload = async () => {
-    resultRef.current.scrollIntoView({ behavior: "smooth" }); // Scroll ke bagian hasil
+    if (!url.trim()) {
+      setError("Masukkan URL TikTok terlebih dahulu.");
+      return;
+    }
 
+    resultRef.current?.scrollIntoView({ behavior: "smooth" });
     setLoading(true);
+    setError("");
+
     try {
       const response = await axios.get(
-        `https://profesor-api.vercel.app/api/tik-down/v1?url=${url}`
+        `https://profesor-api.vercel.app/api/tik-down/v1?url=${encodeURIComponent(url)}`
       );
-      console.log(response.data);
       setVideoData(response.data.data);
-      setError("");
     } catch (err) {
-      setError("Gagal mendownload video, pastikan URL valid.");
+      setError("Gagal mengunduh video. Pastikan URL valid dan berasal dari TikTok.");
       setVideoData(null);
     } finally {
       setLoading(false);
     }
   };
 
-  function toggleReadMore() {
-    setIsExpand(!isExpand);
-  }
-
   return (
-    <div>
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white">
       <Navbar />
-<main>
-      <section id="hero" className=" back flex justify-content-center  ">
-        <div className="">
-          <div className="mb-4 text-white">
-            <h1 align="center" className="pt-[50px] flex h4  lg:text-[2.5rem]   font-extrabold text-center items-center -mb-5 lg:-mb-7"><img className=" bg-transparent w-36 lg:w-48 " src={logo} alt="" />Video Downloader</h1>
-            <p align="center">
-             Tik-Down Pendownload Video tiktok tanpa Watermark, cepat dan tanpa iklan
-            </p>
-            
+
+      <main className="container mx-auto px-4 py-8">
+        {/* Hero Section */}
+        <section id="hero" className="text-center py-12 md:py-20">
+          <div className="flex justify-center mb-6">
+            <img
+              src={logo}
+              alt="Tik-Down Logo"
+              className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-white/10 p-2 shadow-lg"
+            />
           </div>
-          <div class="container w-full mb-3 ">
-            <div class="lg:flex items-center border-2 border-gray-300 rounded-lg p-2  mx-auto">
+
+          <h1 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500 mb-4">
+            Tik-Down
+          </h1>
+          <p className="text-gray-300 max-w-2xl mx-auto mb-8 text-lg">
+            Unduh video TikTok tanpa watermark, cepat, gratis, dan tanpa iklan!
+          </p>
+
+          {/* Input & Button */}
+          <div className="max-w-2xl mx-auto">
+            <div className="flex flex-col sm:flex-row gap-3">
               <input
-                required
                 type="text"
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
-                class="rounded-lg bg-white me-10 h:96 w-full text-black flex-grow border-none outline-none px-2 py-1"
-                placeholder="input url..."
+                placeholder="Tempel link video TikTok di sini..."
+                className="flex-grow px-5 py-3 rounded-xl bg-gray-800 border border-gray-700 focus:border-cyan-500 focus:outline-none transition-all text-white placeholder-gray-400"
               />
-              <div className="mt-2 lg:mt-0">
               <button
-                className="md:-mt-2 bg-dark w-full lg:w-28  text-white px-4 py-1  rounded-lg "
                 onClick={handleDownload}
-                type="submit"
+                disabled={loading}
+                className={`px-6 py-3 rounded-xl font-semibold transition-all ${
+                  loading
+                    ? "bg-gray-600 cursor-not-allowed"
+                    : "bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-500 hover:to-purple-500 shadow-lg hover:shadow-cyan-500/30"
+                }`}
               >
-                Search
+                {loading ? "Memproses..." : "Unduh"}
               </button>
-              </div>
             </div>
-          </div>
 
-          <p className="text-center text-white">
-            Hasil Download nya ada di bawah 👇👇👇
-          </p>
-          {error && (
-            <p className="text-center mt-3" style={{ color: "red " }}>
-              {error}
+            {error && (
+              <p className="mt-4 text-red-400 font-medium animate-pulse">{error}</p>
+            )}
+
+            <p className="mt-6 text-gray-400 text-sm">
+              Hasil unduhan akan muncul di bawah ini 👇
             </p>
-          )}
+          </div>
+        </section>
+
+        {/* Result Section */}
+        <div ref={resultRef} className="mt-16">
+          <ResultLayout>
+            {loading && (
+              <div className="flex justify-center my-10">
+                <div className="w-12 h-12 border-4 border-cyan-500 border-t-transparent rounded-full animate-spin"></div>
+              </div>
+            )}
+            {!loading && videoData && <Card videoData={videoData} />}
+            {!loading && !videoData && !error && (
+              <p className="text-center text-gray-500 mt-10">Belum ada hasil. Masukkan URL untuk memulai.</p>
+            )}
+          </ResultLayout>
         </div>
-      </section>
-<div ref={resultRef}></div>
-    <ResultLayout >
-          {loading && <span className="loading loading-dots loading-lg"></span>}
-          {!loading && videoData && (
-          <Card videoData={videoData}/>
-          )}
-    </ResultLayout>
 
-<Tutorial/>
+        {/* Other Sections */}
+        <Tutorial />
+        <Benefit />
+      </main>
 
-<Benefit/>
-
-
-</main>
-  
-<Footer/>
-
+      <Footer />
     </div>
   );
 }

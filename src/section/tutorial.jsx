@@ -1,73 +1,89 @@
-import tutor1 from '../../public/img/tutor1.png'
-import tutor2 from '../../public/img/tutor2.png'
-import tutor3 from '../../public/img/tutor3.png'
-import tutor4 from '../../public/img/tutor4.png'
-export default function Tutorial(){
-    return(
-        <section id="tutorial-section" className=" pt-5  min-h-[100vh]">
-        <h1 className="h3 text-center mb-5 " align="center">
-          Bagaimana Cara Mendownload Video Tiktok Dengan Tik-Down
-        </h1>
-        
-    <div className="container  w-[80%] lg:w-[60%] ">
- 
-<div className="grid m-auto grid-cols-1 lg:grid-cols-2 gap-4 pt-10 max-w-5xl ">
-    {/* Kolom 2 */}
-    <div className="">
-      <h3 className='h3 '>1. Salin Url Dari Tiktok</h3>
-      <p className="">
-        Biasanya untuk mencopy url dari tiktok adalah dengan cara klik share, lalu klik <b className='font-bold'>"Salin Tautan"</b>
-      </p>
-    </div>
-<div>
-      <img src={tutor1} alt="Your Image" />
-    </div>
-  
-</div>
-<div className="grid max-w-5xl  grid-cols-1 lg:grid-cols-2 gap-4 pt-10">
-    {/* Kolom 2 */}
-    <div className="lg:order-1">
-      <h3 className='h3'>2. Tempel url</h3>
-      <p className="">
-        Tempel url ke <a href="https://tik-down-seven.vercel.app">Tik-Down</a> lalu klik tombol <b className='font-bold'>"Search"</b>. jika sudah tunggu loading nya hingga selesai
-      </p>
-    </div>
-<div className=''>
-      <img src={tutor2} alt="Your Image" />
-    </div>
-  
-</div>
-<div className="grid max-w-5xl  grid-cols-1 lg:grid-cols-2 gap-4 pt-10">
-    {/* Kolom 2 */}
-    <div className="">
-      <h3 className='h3'>3. Hasil </h3>
-      <p className="">
-        Setelah loading maka akan hasilnya akan seperti ini, jika ingin download video nya, klik tombol <b className='font-bold'>Download</b> lalu anda akan di arahkan ke video nya
-      </p>
-    </div>
-<div className=''>
-      <img src={tutor3} alt="Your Image" />
-    </div>
- 
-  
-</div>
-<div className="grid max-w-5xl  grid-cols-1 lg:grid-cols-2 gap-4 pt-10">
-    {/* Kolom 2 */}
-    <div className="lg:order-1">
-      <h3 className='h3'>4. download video</h3>
-      <p className="">
-         ketika sudah mengklik tombol download maka anda akan di arahkan ke video nya, seperti gambar ini. klik titik 3 yang ada di pojok kanan, lalu klik <b className='font-bold'>Download</b>
-      </p>
-    </div>
-<div className=''>
-      <img src={tutor4} alt="Your Image" />
-    </div>
-</div>
-  
-</div>
+import React from "react";
+import tutor1 from "../../public/img/tutor1.png";
+import tutor2 from "../../public/img/tutor2.png";
+import tutor3 from "../../public/img/tutor3.png";
+import tutor4 from "../../public/img/tutor4.png";
 
-            
-      
-      </section>
-    )
+const steps = [
+  {
+    title: "Salin URL dari TikTok",
+    description:
+      "Klik tombol 'Bagikan', lalu pilih <strong>Salin Tautan</strong> untuk menyalin link video.",
+    image: tutor1,
+    imageFirst: false,
+  },
+  {
+    title: "Tempel URL ke Tik-Down",
+    description:
+      "Tempel URL yang telah disalin ke kolom input di <a href='https://tik-down-seven.vercel.app' className='text-cyan-400 hover:underline'>Tik-Down</a>, lalu klik tombol <strong>Unduh</strong>.",
+    image: tutor2,
+    imageFirst: true,
+  },
+  {
+    title: "Lihat Hasil Unduhan",
+    description:
+      "Tunggu proses selesai. Hasil akan muncul di bawah berupa pratinjau video dan tombol <strong>Download</strong>.",
+    image: tutor3,
+    imageFirst: false,
+  },
+  {
+    title: "Unduh Video",
+    description:
+      "Klik tombol <strong>Download</strong>, lalu pada halaman video, tekan ikon titik tiga (⋯) di pojok kanan dan pilih <strong>Simpan</strong>.",
+    image: tutor4,
+    imageFirst: true,
+  },
+];
+
+export default function Tutorial() {
+  return (
+    <section id="tutorial-section" className="py-16 md:py-24 bg-gray-900">
+      <div className="container mx-auto px-4 max-w-6xl">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-4">
+          Cara Mengunduh Video TikTok
+        </h2>
+        <p className="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
+          Ikuti langkah-langkah sederhana berikut untuk mengunduh video TikTok tanpa watermark.
+        </p>
+
+        <div className="space-y-16">
+          {steps.map((step, index) => (
+            <div
+              key={index}
+              className={`grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ${
+                step.imageFirst ? "lg:flex-row-reverse" : ""
+              }`}
+            >
+              {/* Text Content */}
+              <div className="lg:pr-8 lg:pl-0">
+                <div className="flex items-center mb-4">
+                  <div className="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-bold text-lg mr-4 flex-shrink-0">
+                    {index + 1}
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-semibold text-white">
+                    {step.title}
+                  </h3>
+                </div>
+                <p
+                  className="text-gray-300 leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: step.description }}
+                />
+              </div>
+
+              {/* Image */}
+              <div className="flex justify-center">
+                <div className="rounded-2xl overflow-hidden border border-gray-700 bg-gray-800 shadow-lg hover:shadow-cyan-500/10 transition-shadow duration-300 w-full max-w-md">
+                  <img
+                    src={step.image}
+                    alt={`Langkah ${index + 1}`}
+                    className="w-full h-auto object-contain p-2"
+                  />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
