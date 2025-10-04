@@ -29,7 +29,7 @@ function App() {
 
     try {
       const response = await axios.get(
-        `https://profesor-api.vercel.app/api/tik-down/v1?url=${encodeURIComponent(url)}`
+        `https://profesor-api.vercel.app/api/tiktok/v1/download?url=${encodeURIComponent(url)}`
       );
       setVideoData(response.data.data);
     } catch (err) {
