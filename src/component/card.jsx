@@ -12,17 +12,15 @@ export default function Card({ videoData }) {
   };
 
   return (
-    <div className="bg-gray-800 rounded-2xl border border-gray-700 overflow-hidden shadow-xl max-w-4xl mx-auto">
+    <div className="bg-gray-800 rounded-2xl border border-gray-700 overflow-hidden shadow-xl  mx-auto">
       {/* Video Player */}
-      <div className="relative w-full pb-[56.25%]"> {/* 16:9 Aspect Ratio */}
-        <video
-          src={videoData.videoLink}
-          className="absolute top-0 left-0 w-full h-full object-cover"
-          controls
-          preload="metadata"
-        >
-          Browser Anda tidak mendukung pemutaran video.
-        </video>
+      <div className=" w-full flex justify-center items-center"> {/* 16:9 Aspect Ratio */}
+        <img
+          src={videoData.videoImage}
+          className=" w-auto h-auto object-cover justify-center items-center"
+        />
+         
+        
       </div>
 
       {/* Content */}
