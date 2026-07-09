@@ -12,7 +12,7 @@ function Navbar() {
     <nav className="sticky top-0 z-50 w-full border-b border-gray-900 bg-[#0c0414]/70 backdrop-blur-md transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          
+          {/* testing */}
           {/* Logo Brand - Menggunakan warna solid putih dengan hover cyan */}
           <div className="flex-1 flex items-center justify-start">
             <a href="#" className="text-xl font-bold tracking-wider text-white hover:text-cyan-400 transition-colors">
